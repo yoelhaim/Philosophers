@@ -6,7 +6,7 @@
 /*   By: pro <pro@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:58:48 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/22 22:12:25 by pro              ###   ########.fr       */
+/*   Updated: 2022/05/22 22:26:33 by pro              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int create_tread(t_data *data, t_philo *philo)
         if ((pthread_create(&data->philo[i].id_thread, NULL, routine, (void *)(&philo[i]))))
             return (printf("%s \n", ERROR_TH), 0);
     }
-    // check_dieth(data, data->philo);
+    check_dieth(data, data->philo);
     return (1);
 }
