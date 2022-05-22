@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pro <pro@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:06:44 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/20 14:45:16 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/05/22 22:30:34 by pro              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void check_dieth(t_data *data, t_philo *philo)
 
         while (i < data->number_of_philosophers)
         {
-            // printf("\n time is =>  %lld  >  %d \n", get_time() - philo[i].check_die_time, data->time_to_die);
+            printf("\n time is =>  %lld  >  %d \n", get_time() - philo[i].check_die_time, data->time_to_die);
             pthread_mutex_lock(&(data->eating));
             if ((get_time() - philo[i].check_die_time) > data->time_to_die)
             {
