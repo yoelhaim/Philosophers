@@ -15,3 +15,5 @@ all : $(NAME)
 	cc $(FLAGS) -c $< -o $@
 clean:
 	$(RM) $(OBJ)
+fclean: clean
+	$(RM) $(NAME)
