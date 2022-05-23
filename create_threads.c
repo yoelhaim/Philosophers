@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_threads.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pro <pro@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:58:48 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/22 22:26:33 by pro              ###   ########.fr       */
+/*   Updated: 2022/05/23 18:42:30 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int create_tread(t_data *data, t_philo *philo)
             return (printf("%s \n", ERROR_TH), 0);
     }
     check_dieth(data, data->philo);
+    end(data, data->philo);
     return (1);
 }
