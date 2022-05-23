@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:05:33 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/20 14:37:39 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/05/23 18:47:03 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,8 @@ long long get_time();
 void *routine(void *philo);
 void check_dieth(t_data *data, t_philo *philo);
 void check_eat(t_data *data, t_philo *philo);
+void write_message(t_data *data, int philoid, char *str);
+void ft_usleep(int time_limit, t_data *data);
+void end(t_data *data, t_philo *philo);
+void start_eat(t_data *data, t_philo *philo);
 #endif
