@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pro <pro@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:06:44 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/22 22:30:34 by pro              ###   ########.fr       */
+/*   Updated: 2022/05/23 18:42:09 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void check_dieth(t_data *data, t_philo *philo)
 
         while (i < data->number_of_philosophers)
         {
-            printf("\n time is =>  %lld  >  %d \n", get_time() - philo[i].check_die_time, data->time_to_die);
+            // printf("\n time is =>  %lld  >  %d \n", get_time() - philo[i].check_die_time, data->time_to_die);
             pthread_mutex_lock(&(data->eating));
             if ((get_time() - philo[i].check_die_time) > data->time_to_die)
             {
@@ -102,4 +102,31 @@ void check_eat(t_data *data, t_philo *philo)
         i++;
     if (i == data->number_of_philosophers)
         data->check_eat = 1;
+}
+void ft_usleep(int time_limit, t_data *data)
+{
+    long long time;
+
+    time = get_time();
+    if (!(data->die))
+    {
+        usleep((time_limit - (time_limit * 0.03)) * 1000);
+        while ((get_time() - time) < time_limit)
+            usleep(1);
+    }
+}
+void end(t_data *data, t_philo *philo)
+{
+    int index;
+
+    index = 0;
+    while (index < data->number_of_philosophers)
+        pthread_join(philo[index++].id_thread, NULL);
+    index = 0;
+    while (index < data->number_of_philosophers)
+        pthread_mutex_destroy(&(data->forks[index++]));
+    pthread_mutex_destroy(&(data->eating));
+    pthread_mutex_destroy(&(data->print));
+    free(data->philo);
+    free(data->forks);
 }
