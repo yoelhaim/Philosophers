@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:39:50 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/23 18:46:56 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/05/24 15:50:55 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void *routine(void *philo)
         if (taking_fork(data, copy_of_philo))
             break;
         write_message(data, copy_of_philo->id, "is sleeping");
-        write_message(data, data->time_to_sleep, "is sleeping ");
+        ft_usleep(data->time_to_sleep, data);
         write_message(data, copy_of_philo->id, "is  thinking");
     }
 
