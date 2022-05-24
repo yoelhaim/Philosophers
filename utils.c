@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:06:44 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/23 18:42:09 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/05/23 18:56:25 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void write_message(t_data *data, int philoid, char *str)
     pthread_mutex_lock(&(data->print));
     if (!(data->die))
     {
-        // printf("\n%lld ", data->beginning_time);
+        printf("\n%lld ", get_time() - data->beginning_time);
         printf("%d ", philoid);
         printf("%s\n", str);
     }
@@ -68,7 +68,6 @@ void write_message(t_data *data, int philoid, char *str)
 void check_dieth(t_data *data, t_philo *philo)
 {
     int i;
-    printf("nof => %d\n", data->number_of_philosophers);
     while (!(data->check_eat))
     {
         i = 0;
@@ -112,7 +111,7 @@ void ft_usleep(int time_limit, t_data *data)
     {
         usleep((time_limit - (time_limit * 0.03)) * 1000);
         while ((get_time() - time) < time_limit)
-            usleep(1);
+            usleep(500);
     }
 }
 void end(t_data *data, t_philo *philo)
