@@ -6,7 +6,7 @@ SRC = utils.c \
 		routine.c \
 		philo.c \
 		init.c \
-		create_threads.c
+		create_threads.c 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)
 	cc $(FLAGS) $(OBJ) -o philo
@@ -17,3 +17,4 @@ clean:
 	$(RM) $(OBJ)
 fclean: clean
 	$(RM) $(NAME)
+re : fclean all 
