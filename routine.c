@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:39:50 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/24 15:50:55 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:44:41 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int taking_fork(t_data *data, t_philo *philo)
     pthread_mutex_unlock(&(data->forks[philo->left_chopstick]));
     pthread_mutex_unlock(&(data->forks[philo->right_chopstick]));
     if (data->check_eat)
-        return (1);
-    return (0);
+        return (0);
+    return (1);
 }
 void start_eat(t_data *data, t_philo *philo)
 {
@@ -51,7 +51,7 @@ void *routine(void *philo)
         usleep(10000);
     while (!(data->die))
     {
-        if (taking_fork(data, copy_of_philo))
+        if (!taking_fork(data, copy_of_philo))
             break;
         write_message(data, copy_of_philo->id, "is sleeping");
         ft_usleep(data->time_to_sleep, data);
