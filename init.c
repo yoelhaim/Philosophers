@@ -6,7 +6,7 @@
 /*   By: pro <pro@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:50:00 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/05/22 22:18:05 by pro              ###   ########.fr       */
+/*   Updated: 2022/06/01 18:43:35 by pro              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ int init_philo(char **av, int ac, t_data *data)
     data->time_to_die = ft_atoi(av[2]);
     data->time_to_eat = ft_atoi(av[3]);
     data->time_to_sleep = ft_atoi(av[4]);
+    data->beginning_time = 0;
+    data->die = 0;
+    data->check_eat = 0;
     data->time_each_philo_must_eat = 0;
     if (ac == 6)
         data->time_each_philo_must_eat = ft_atoi(av[5]);
