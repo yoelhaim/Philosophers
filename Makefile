@@ -9,10 +9,10 @@ SRC = utils.c \
 		create_threads.c 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)
-	cc $(FLAGS) $(OBJ) -o philo
+	cc $(FLAGS) $(OBJ) -o philo -g
 all : $(NAME)
 %.o: %.c
-	cc $(FLAGS) -c $< -o $@
+	cc $(FLAGS) -c $< -o $@ -g
 clean:
 	$(RM) $(OBJ)
 fclean: clean
