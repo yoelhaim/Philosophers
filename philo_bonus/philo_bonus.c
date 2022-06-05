@@ -3,10 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pro <pro@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 13:26:49 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/06/04 13:29:38 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/06/05 20:51:12 by pro              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "philo_bonus.h"
+int main(int ac, char **av)
+{
+
+    return (0);
+}
