@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:50:00 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/06/03 15:24:05 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/06/06 11:50:10 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 int	ft_init_struct_philo(t_data *data)
 {
-	int	index;
+	int	i;
 	int	nof;
 
-	index = 0;
+	i = 0;
 	nof = data->number_of_philosophers;
-	data->philo = malloc(sizeof(t_data) * data->number_of_philosophers);
+	data->philo = malloc(sizeof(t_data) * nof);
 	if (!data->philo)
 		return (1);
-	while (index < data->number_of_philosophers)
+	while (i < data->number_of_philosophers)
 	{
-		data->philo[index].id = index;
-		data->philo[index].left_chopstick = index;
-		data->philo[index].right_chopstick = (index + 1) % nof;
-		data->philo[index].check_die_time = 0;
-		data->philo[index].eat = 0;
-		data->philo[index].data = data;
-		index++;
+		data->philo[i].id = i;
+		data->philo[i].left_chopstick = i;
+		data->philo[i].right_chopstick = (i + 1) % nof;
+		data->philo[i].check_die_time = 0;
+		data->philo[i].eat = 0;
+		data->philo[i].data = data;
+		i++;
 	}
 	return (0);
 }
@@ -49,7 +49,7 @@ int	ft_init_mutex(t_data *data)
 	data->forks = malloc(sizeof(pthread_mutex_t) * nof);
 	if (!(data->forks))
 		return (1);
-	while (index < data->number_of_philosophers)
+	while (index < nof)
 	{
 		if (pthread_mutex_init(&(data->forks[index]), NULL))
 			return (1);
@@ -71,6 +71,6 @@ int	init_philo(char **av, int ac, t_data *data)
 	if (ac == 6)
 		data->time_each_philo_must_eat = ft_atoi(av[5]);
 	if (ft_init_mutex(data) || ft_init_struct_philo(data))
-		return (write(2, "ERROR : Initialization has failed !\n", 37), 1);
+		return (printf("ERROR : Initialization has failed !\n"), 1);
 	return (1);
 }
