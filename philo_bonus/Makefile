@@ -9,7 +9,7 @@ SRC = utils_bonus.c \
 		create_prossess.c 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)
-	cc $(FLAGS) $(OBJ) -o philo -g
+	cc $(FLAGS) $(OBJ) -o $(NAME) -g
 all : $(NAME)
 %.o: %.c
 	cc $(FLAGS) -c $< -o $@ -g
