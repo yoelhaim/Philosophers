@@ -9,7 +9,7 @@ SRC = utils.c \
 		create_threads.c 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)
-	cc $(FLAGS) $(OBJ) -o philo -g
+	cc $(FLAGS) $(OBJ) -o $(NAME) -g
 all : $(NAME)
 %.o: %.c
 	cc $(FLAGS) -c $< -o $@ -g
