@@ -6,6 +6,7 @@ SRC = utils_bonus.c \
 		routine_bonus.c \
 		philo_bonus.c \
 		init_bonus.c \
+		threads.c 	\
 		create_prossess.c 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)
