@@ -2,12 +2,11 @@ NAME ='philo_bonus'
 FLAGS = -Wall -Wextra -Werror 
 CC = cc
 RM = rm -rf
-SRC = utils_bonus.c \
-		routine_bonus.c \
-		philo_bonus.c \
-		init_bonus.c \
-		threads.c 	\
-		create_prossess.c 
+SRC = create.c \
+		parsing.c \
+		main.c \
+		utils.c \
+		manage.c
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)
 	cc $(FLAGS) $(OBJ) -o $(NAME) -g
